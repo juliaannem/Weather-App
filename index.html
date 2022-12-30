@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WEATHER APP</title>
+    <title>WEATHER APP PROJECT 🌞</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -15,54 +15,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-<style>body {
-  text-align: center;
-}
-h1 {
-  color: #97cba9;
-  font-weight: 300px;
-  font-size: 50px;
-}
+    <link rel="stylesheet" href="src/style.css" class="css" />
 
-form {
-  margin: 30px 0px 30px 0px;
-}
-
-sup {
-  font-size: 30px;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-.row {
-  margin: 50px;
-}
-
-.current {
-  margin: 20px;
-  color: #97cba9;
-  font-weight: 350px;
-  font-size: 75px;
-}
-
-.col-sm {
-  padding: 0px;
-}
-</style>
   </head>
-
   <body>
     <div class="container">
+      <div class="wrapper">
       <form id="search-engine">
         <input id="city-input" type="text" placeholder="Enter a City" autofocus="on" />
         <input type="submit" value="Search" />
       </form> <button>Use Current Location</button>
-<div class="cityDate">
+      <div class="cityDate">
       <h1 id="displayed-city">Vancouver, BC</h1>
       <p id="date-time">Monday November 14, 2022</p>
-</div>
+      </div>
 
       <p class="current">☀️ <span id="current-temp"> 4</span><sup><a id="celsius">°C </a> |<a id="farenheight">°F</a></sup></p>
       <p><strong>10°C</strong>/<span class="text-muted">-2°C</span> </br> Sunny</p>
@@ -125,6 +91,7 @@ a:hover {
 
 
       <script src="src/index.js"></script>
+      </div>
     </div>
   </body>
 </html>
