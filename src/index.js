@@ -32,59 +32,58 @@ function formatDate(now) {
 let dateTime = document.querySelector("#date-time");
 dateTime.innerHTML = formatDate(new Date());
 
-//////////////
-function changeCity(event) {
+//////////////////////////////////////////////////////////
+
+function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-input");
+  let cityInputElement = document.querySelector("#city-input");
 
-  let displayedCity = document.querySelector("#displayed-city");
-  displayedCity.innerHTML = city.value;
-
-  let apiKey = "a5acb752426cd8188485c35694980e3a";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
-  function display(response) {
-    let h1 = document.querySelector("#current-temp");
-    h1.innerHTML = Math.round(response.data.main.temp);
-  }
-
-  axios.get(apiURL).then(display);
+  console.log(cityInputElement.value);
+  search(cityInputElement.value);
 }
 
-let searchedCity = document.querySelector("#search-engine");
-searchedCity.addEventListener("submit", changeCity);
-
-///////////////////
-function changeCelsius(event) {
-  let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = 4;
-}
-function changeFarenheight(event) {
-  let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = 39.2;
+function search(city) {
+  let apiKey = "d301fateao124ea76ce48beb7c353c42";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayTemperature);
+  console.log(apiURL);
 }
 
-let celsius = document.querySelector("#celsius");
-let farenheight = document.querySelector("#farenheight");
+function displayTemperature(response) {
+  console.log(response.data);
+  console.log(response.data.temperature.humidity);
 
-celsius.addEventListener("click", changeCelsius);
-farenheight.addEventListener("click", changeFarenheight);
-/////////////////
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
 
-function currentTemp(response) {
-  let longitude = response.coords.longitude;
-  let latitude = response.coords.latitude;
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.city;
 
-  function temp(response2) {
-    let temp = document.querySelector("#current-temp");
-    temp.innerHTML = response2.data.main.temp;
-  }
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;
 
-  let apiKey = "a5acb752426cd8188485c35694980e3a";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiURL).then(temp);
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.temperature.humidity;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.temperature.wind.speed);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", `${response.data.condition.description}`);
+
+  //getForecast(response.data.city);
+
+  //http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png
 }
-let button = document.querySelector("button");
-button.addEventListener(
-  "click",
-  navigator.geolocation.getCurrentPosition(currentTemp)
-);
+
+search("Vancouver");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

@@ -9,6 +9,9 @@ li {
   margin: 0px;
   padding: 0px;
 }
+li::first-letter {
+  text-transform: capitalize;
+}
 
 .btn {
   background-color: #97cba9;
