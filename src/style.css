@@ -1,26 +1,37 @@
-body {
-  text-align: center;
-}
 h1 {
   color: #97cba9;
   font-weight: 300px;
   font-size: 50px;
 }
 
-form {
-  margin: 30px 0px 30px 0px;
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 
-sup {
-  font-size: 30px;
+.btn {
+  background-color: #97cba9;
+  color: white;
+}
+
+.weather-app {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 40px auto;
 }
 
 a:hover {
   cursor: pointer;
 }
 
-.row {
-  margin: 50px;
+.overview {
+  text-align: center;
 }
 
 .current {
@@ -28,8 +39,4 @@ a:hover {
   color: #97cba9;
   font-weight: 350px;
   font-size: 75px;
-}
-
-.col-sm {
-  padding: 0px;
 }

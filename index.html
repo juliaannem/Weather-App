@@ -11,86 +11,72 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" class="css" />
-
   </head>
   <body>
     <div class="container">
       <div class="wrapper">
-      <form id="search-engine">
-        <input id="city-input" type="text" placeholder="Enter a City" autofocus="on" />
-        <input type="submit" value="Search" />
-      </form> <button>Use Current Location</button>
-      <div class="cityDate">
-      <h1 id="displayed-city">Vancouver, BC</h1>
-      <p id="date-time">Monday November 14, 2022</p>
-      </div>
+        <div class="weather-app">
+          <form id="search-engine" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  id="city-input"
+                  type="search"
+                  placeholder="Enter a City"
+                  autofocus="on"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-3">
+                <input type="submit" value="Search" class="btn w-100" />
+              </div>
+            </div>
+          </form>
 
-      <p class="current">☀️ <span id="current-temp"> 4</span><sup><a id="celsius">°C </a> |<a id="farenheight">°F</a></sup></p>
-      <p><strong>10°C</strong>/<span class="text-muted">-2°C</span> </br> Sunny</p>
+          <div class="overview">
+            <h1 id="city"></h1>
+            <p id="date-time"></p>
+            <div class="row" class="current-temp">
+              <img src="" alt="clear" id="icon" />
+              <strong class="current"><span id="current-temp"></span>°C</strong>
+            </div>
+            <ul>
+              <li class="current-weather-max">
+                10°C / <span class="current-weather-min">-2°C</span>
+              </li>
+              <li class="current-weather-description">Sunny</li>
+            </ul>
+          </div>
 
           <div class="row">
-              <div class="col-sm">
-                  <div class="card text-center" style="width: 7rem;">
-                      <div class="card-body">
-                        <h1>☀️</h1>
-                        <p class="card-text">Tues</p>
-                        <h5 class="card-title">10°C</h5>
-                        <h5 class="card-subtitle mb-2 text-muted">1°C</h5>                     
-                      </div>
-                    </div>
-              </div>
-              <div class="col-sm">
-                  <div class="card text-center" style="width: 7rem;">
-                      <div class="card-body">
-                       <h1>☀️</h1>
-                       <p class="card-text">Wed</p>
-                       <h5 class="card-title">10°C</h5>
-                       <h5 class="card-subtitle mb-2 text-muted">1°C</h5>                     
-                      </div>
-                    </div>
-              </div>
-              <div class="col-sm">
-                  <div class="card text-center" style="width: 7rem;">
-                      <div class="card-body">
-                          <h1>☀️</h1>
-                          <p class="card-text">Thurs</p>
-                        <h5 class="card-title">9°C</h5>
-                        <h5 class="card-subtitle mb-2 text-muted">2°C</h5>                     
-                      </div>
-                    </div>
-              </div>
-              <div class="col-sm">
-                  <div class="card text-center" style="width: 7rem;">
-                      <div class="card-body">
-                          <h1>☀️</h1>
-                          <p class="card-text">Fri</p>
-                        <h5 class="card-title">8°C</h5>
-                        <h5 class="card-subtitle mb-2 text-muted">0°C</h5>                     
-                      </div>
-                    </div>
-              </div>
-              <div class="col-sm">
-                  <div class="card text-center" style="width: 7rem;">
-                      <div class="card-body">
-                        <h1>☁️</h1>
-                          <p class="card-text">Sat</p>
-                        <h5 class="card-title">7°C</h5>
-                        <h5 class="card-subtitle mb-2 text-muted">0°C</h5>                     
-                      </div>
-                    </div>
+            <div class="col-sm">
+              <div class="card text-center" style="width: 7rem">
+                <div class="card-body">
+                  <h1>☀️</h1>
+                  <p class="card-text">Tues</p>
+                  <h5 class="card-title">10°C</h5>
+                  <h5 class="card-subtitle mb-2 text-muted">1°C</h5>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <script src="src/index.js"></script>
         </div>
-        <p><a href="https://github.com/juliaannem/Weather-App" target="_blank">Open source code</a> by <a href="https://www.linkedin.com/in/juliannemagalona/" target="_blank">Julianne Magalona</a></p>
-
-
-
-      <script src="src/index.js"></script>
+        <small
+          ><a href="https://github.com/juliaannem/Weather-App" target="_blank"
+            >Open source code</a
+          >
+          by Julianne Magalona</small
+        >
       </div>
     </div>
   </body>
