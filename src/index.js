@@ -51,7 +51,20 @@ function search(city) {
 
 function displayTemperature(response) {
   console.log(response.data);
-  console.log(response.data.temperature.humidity);
+  console.log(Math.round(response.data.wind.speed));
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.temperature.humidity;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", `${response.data.condition.description}`);
 
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
@@ -65,22 +78,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
 
-  let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.temperature.humidity;
-
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.temperature.wind.speed);
-
-  let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute(
-    "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
-  );
-  iconElement.setAttribute("alt", `${response.data.condition.description}`);
-
-  //getForecast(response.data.city);
-
-  //http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png
+  getForecast(response.data.city);
 }
 
 search("Vancouver");
