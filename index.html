@@ -36,7 +36,7 @@
                 />
               </div>
               <div class="col-3">
-                <input type="submit" value="Search" class="btn w-100" />
+                <input type="submit" value="Search" class="button" />
               </div>
             </div>
           </form>
@@ -47,9 +47,11 @@
             <img src="" alt="Clear" id="icon" class="float-left" />
             <strong class="current"><span id="current-temp"></span>°C</strong>
             <ul>
-              <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind: <span id="wind"></span> km/h</li>
               <li id="description"></li>
+              <li>
+                Humidity: <span id="humidity"></span>% Wind:
+                <span id="wind"></span> km/h
+              </li>
             </ul>
           </div>
 
@@ -58,7 +60,10 @@
           <script src="src/index.js"></script>
         </div>
         <small
-          ><a href="https://github.com/juliaannem/Weather-App" target="_blank"
+          ><a
+            href="https://github.com/juliaannem/Weather-App"
+            target="_blank"
+            class="gitLink"
             >Open source code</a
           >
           by Julianne Magalona</small
