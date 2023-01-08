@@ -21,7 +21,7 @@ a {
   color: #97cba9;
 }
 
-.button {
+.btn {
   background-color: #97cba9;
   color: white;
   border: 1px solid #97cba9;
@@ -31,7 +31,7 @@ a {
   transition: all 200ms ease;
 }
 
-.button:hover {
+.btn:hover {
   color: #97cba9;
   background-color: white;
   border: 1px solid #97cba9;
