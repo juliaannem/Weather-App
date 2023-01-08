@@ -21,6 +21,15 @@ a {
   color: #97cba9;
 }
 
+img {
+  position: relative;
+  left: -11px;
+}
+.current-icon {
+  position: relative;
+  top: -90px;
+}
+
 .btn {
   background-color: #97cba9;
   color: white;
