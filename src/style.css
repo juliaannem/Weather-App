@@ -1,3 +1,13 @@
+body {
+  background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+}
+.weather-app {
+  background-color: #fcfefe;
+}
+small {
+  color: #66bfbf;
+}
+
 h1 {
   color: #97cba9;
   font-weight: 300px;
